@@ -1,0 +1,24 @@
+<form class="container" [formGroup]="form">
+    <div class="form-group mb-3">
+        <label for="productName">Product Name</label>
+        <input id="productName" formControlName="name" type="text" class="form-control" autofocus="autofocus"
+            placeholder="Enter the Product Name" title="Enter the Product Name" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="introductionDate">Introduction Date</label>
+        <input id="introductionDate" formControlName="dateAdded" type="text" class="form-control"
+            placeholder="Enter the Introduction Date" title="Enter the Introduction Date" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="price">Price</label>
+        <input id="price" type="number" formControlName="price" class="form-control" placeholder="Enter the Price"
+            title="Enter the Price" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="image">Images</label>
+        <input #imageInput class="form-control" multiple type="file" accept="image/*" (change)="processFile(imageInput)">
+    </div>
+
+    <button type="button" class="btn btn-outline-primary" (click)="onProductAdd()">Add</button>
+
+</form>

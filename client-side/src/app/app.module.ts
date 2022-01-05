@@ -49,12 +49,17 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsComponent } from './pages/products/products.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component';
+import { AddProductComponent } from './pages/add-product/add-product.component';
+import { Store } from './util/store/store';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProductsComponent
+    ProductsComponent,
+    HeaderComponent,
+    AddProductComponent
   ],
   imports: [
   
@@ -100,7 +105,7 @@ BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [Store],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
