@@ -1,0 +1,60 @@
+<div fxFlexFill *ngIf="currentAction === ACTIONS.ADD_PRODUCT">
+    <mat-drawer-container hasBackdrop="true" fxFlexFill autosize>
+        <mat-drawer #drawer class="home-sidenav" mode="over">
+            <div fxFlexFill fxLayout="column" fxLayoutAlign="space-between center" style="background-color: aqua;">
+                <div fxLayout="column" fxLayoutGap="10px">
+                    <button mat-raised-button>
+                        Action 1
+                    </button>
+                    <button mat-raised-button>
+                        Action 2
+                    </button>
+                </div>
+                <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-between end">
+                    <mat-icon [routerLink]="['/settings']">settings</mat-icon>
+                    <button mat-raised-button [routerLink]="['/sign-out']">
+                        Action 3
+                    </button>
+                </div>
+            </div>
+        </mat-drawer>
+
+        <div fxFlexFill fxLayout="column" fxLayoutAlign="start center" style="background-color: aqua;">
+            <p>Add Products</p>
+            <p>Add Images</p>
+            <button class="add-product-item" mat-raised-button (click)="onUploadImage()">
+                <mat-icon [inline]="true">add_a_photo</mat-icon>
+            </button>
+            <form class="form" [formGroup]="form">
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Product Name</mat-label>
+                        <input formControlName="product_name" matInput>
+                        <mat-error *ngIf="form.controls['product_name'].invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Price</mat-label>
+                        <input formControlName="product_price" matInput>
+                        <mat-error *ngIf="form.controls['product_price'].invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <div fxFlexAlign="center">
+                    <button mat-raised-button (click)="onSubmit()">
+                        Submit
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+
+
+    </mat-drawer-container>
+</div>
+
+<div *ngIf="currentAction === ACTIONS.VIEW_PRODUCT">
+    <h1>All Products</h1>
+    
+</div>

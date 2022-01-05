@@ -1,0 +1,28 @@
+<mat-drawer-container hasBackdrop="true" class="home-container" autosize>
+    <mat-drawer #drawer class="home-sidenav" mode="over">
+        <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+        <div fxFlexFill fxLayout="column" fxLayoutAlign="space-between center"  style="background-color: aqua;">
+            <div fxLayout="column" fxLayoutGap="10px">
+                <button mat-raised-button [routerLink]="['/products', ACTIONS.ADD_PRODUCT]">
+                    Add Product
+                </button>
+                <button mat-raised-button [routerLink]="['/products', ACTIONS.VIEW_PRODUCT]">
+                    View Products
+                </button>
+            </div>
+            <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-between end">
+                <mat-icon [routerLink]="['/settings']">settings</mat-icon>
+                <button mat-raised-button [routerLink]="['/sign-out']">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+    </mat-drawer>
+
+    <div class="home-sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
+            Menu
+        </button>
+    </div>
+
+</mat-drawer-container>
